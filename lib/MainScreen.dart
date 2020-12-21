@@ -1,5 +1,4 @@
 import 'DetailScreen.dart';
-import 'Book.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:toast/toast.dart';
@@ -53,7 +52,7 @@ class _MyAppState extends State<My_App> {
                     crossAxisCount: 2,
                     mainAxisSpacing: 15,
                     crossAxisSpacing: 15,
-                    childAspectRatio: 0.55,
+                    childAspectRatio: 0.52,
                   ),
                   itemBuilder: (context, index) => InkWell(
                     onTap: () {
@@ -80,7 +79,7 @@ class _MyAppState extends State<My_App> {
                       child: Column(
                         children: [
                           Container(
-                            height: 290,
+                            height: 291,
                             child: Column(
                               children: [
                                 Container(
@@ -103,8 +102,6 @@ class _MyAppState extends State<My_App> {
                                 Text(
                                   book_list[index]['booktitle'].toString(),
                                   textAlign: TextAlign.center,
-                                  // overflow: TextOverflow.ellipsis,
-                                  // softWrap: false,
                                   style: TextStyle(
                                     fontSize: 15,
                                     fontWeight: FontWeight.bold,
@@ -182,35 +179,11 @@ class _MyAppState extends State<My_App> {
       if (res.body == 'nodata') {
         print('no data');
       } else {
-        //print(res.body);
         var books_jscode = json.decode(res.body);
         book_list = books_jscode['books'];
         book_list_size = book_list.length;
         print(book_list_size);
       }
-
-      // if (res.body == 'nodata') {
-      //   print('failed');
-      // } else {
-      //   print('yes');
-      // }
-
-      // if (res.body == "success") {
-      //   Toast.show(
-      //     "Get success.",
-      //     context,
-      //     duration: 4,
-      //     gravity: Toast.BOTTOM,
-      //   );
-      // } else {
-      //   print(res);
-      //   Toast.show(
-      //     "Get failed",
-      //     context,
-      //     duration: Toast.LENGTH_LONG,
-      //     gravity: Toast.BOTTOM,
-      //   );
-      // }
     }).catchError((err) {
       print(err);
     });

@@ -71,7 +71,6 @@ class _Detail_ScreenState extends State<Detail_Screen> {
                 alignment: Alignment.center,
                 child: Text(
                   book_list[widget.index]['booktitle'],
-                  //textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
